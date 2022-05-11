@@ -8,7 +8,6 @@
         android:id="@+id/slider_content_img"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:background="@drawable/ic_launcher_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@id/slider_content_text"
@@ -26,7 +25,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintWidth_max="150dp"
-        android:text="asdasd asd asd as das das das dasd asd as das das das d"
     />
 
 
