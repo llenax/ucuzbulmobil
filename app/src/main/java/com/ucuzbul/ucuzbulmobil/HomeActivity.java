@@ -8,24 +8,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.ucuzbul.ucuzbulmobil.adapters.SliderAdapter;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class HomeActivity extends AppCompatActivity {
 
     ViewPager slider;
     SliderAdapter sliderAdapter;
 
-    List<Map<Integer, String>> sliderItems = new ArrayList<>();
-
-
-    public HomeActivity() {
-        sliderItems.add(Collections.singletonMap(R.drawable.ic_launcher_background, "test1"));
-        sliderItems.add(Collections.singletonMap(R.drawable.ic_launcher_background, "test2"));
-    }
+    int[] sliderItems = { R.drawable.ic_launcher_background, R.drawable.ic_launcher_background };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
