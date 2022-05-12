@@ -1,7 +1,10 @@
 package com.ucuzbul.ucuzbulmobil.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +16,13 @@ import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.squareup.picasso.Picasso;
 import com.ucuzbul.ucuzbulmobil.R;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -23,11 +31,11 @@ public class SliderAdapter extends PagerAdapter {
 
     Context context;
 
-    List<Map<Integer, String>> items;
+    List<Map<String, String>> items;
 
     LayoutInflater layoutInflater;
 
-    public SliderAdapter(Context context, List<Map<Integer, String>> items) {
+    public SliderAdapter(Context context, List<Map<String, String>> items) {
         this.context = context;
         this.items = items;
 
@@ -51,7 +59,8 @@ public class SliderAdapter extends PagerAdapter {
         View itemView = layoutInflater.inflate(R.layout.slider_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.slider_content_img);
-        imageView.setImageResource(Objects.requireNonNull(getMapPositionIndexVal(position)).getKey());
+
+        Picasso.get().load(Objects.requireNonNull(getMapPositionIndexVal(position)).getKey()).into(imageView);
 
         TextView textView = (TextView) itemView.findViewById(R.id.slider_content_text);
         textView.setText(Objects.requireNonNull(getMapPositionIndexVal(position)).getValue());
@@ -68,11 +77,13 @@ public class SliderAdapter extends PagerAdapter {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private Map.Entry<Integer, String> getMapPositionIndexVal(int position) {
+    private Map.Entry<String, String> getMapPositionIndexVal(int position) {
         if( items.get(position).entrySet().stream().findFirst().isPresent()) {
             return items.get(position).entrySet().stream().findFirst().get();
         }
         return null;
     }
+
+
 
 }

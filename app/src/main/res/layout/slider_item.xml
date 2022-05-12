@@ -20,6 +20,7 @@
         android:id="@+id/slider_content_text"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
+        android:gravity="center"
         app:layout_constraintLeft_toRightOf="@id/slider_content_img"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -18,11 +18,14 @@ public class HomeActivity extends AppCompatActivity {
     ViewPager slider;
     SliderAdapter sliderAdapter;
 
-    List<Map<Integer, String>> sliderItems = new ArrayList<>();
+    List<Map<String, String>> sliderItems = new ArrayList<>();
 
     public HomeActivity() {
-        sliderItems.add(Collections.singletonMap(R.drawable.ic_launcher_background, "test1"));
-        sliderItems.add(Collections.singletonMap(R.drawable.ic_launcher_background, "test2"));
+        sliderItems.add(Collections.singletonMap("https://w.wallhaven.cc/full/rd/wallhaven-rdwjj7.jpg", "test1"));
+        sliderItems.add(Collections.singletonMap(
+                "https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoreet interdum finibus. Nunc vitae magna velit. Vivamus non lacus sed sapien ultricies luctus quis id nunc. Cras sodales quam lorem, id ullamcorper libero pharetra eu. Morbi leo velit, elementum eu molestie non, vulputate a tellus. Vivamus blandit posuere lacus quis laoreet."
+        ));
     }
 
     @Override
