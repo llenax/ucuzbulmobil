@@ -5,130 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@id/search"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="200dp"
+        android:background="@drawable/border"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="1"
     />
 
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textColor="@color/white"
-        android:background="@drawable/border"
-        app:layout_constraintBottom_toTopOf="@+id/nav"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        android:inputType="textNoSuggestions"
-        tools:ignore="LabelFor"
-        android:importantForAutofill="no" />
-
-    <View
-        android:id="@+id/nav"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:background="@drawable/border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search"
-        app:layout_constraintBottom_toTopOf="@id/slider" />
-
-    <View
-        android:id="@+id/btn1"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:background="@color/purple_500"
-        app:layout_constraintTop_toTopOf="@+id/nav"
-        app:layout_constraintBottom_toBottomOf="@+id/nav"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/btn2"
-    />
-
-    <TextView
-        android:id="@+id/btn1_content"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintTop_toTopOf="@+id/btn1"
-        app:layout_constraintBottom_toBottomOf="@+id/btn1"
-        app:layout_constraintLeft_toLeftOf="@+id/btn1"
-        app:layout_constraintRight_toRightOf="@+id/btn1"
-    />
-
-    <View
-        android:id="@+id/btn2"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:background="@color/purple_500"
-        app:layout_constraintTop_toTopOf="@+id/nav"
-        app:layout_constraintBottom_toBottomOf="@+id/nav"
-        app:layout_constraintLeft_toRightOf="@+id/btn1"
-        app:layout_constraintRight_toLeftOf="@id/btn3"
-    />
-
-    <TextView
-        android:id="@+id/btn2_content"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintTop_toTopOf="@+id/btn2"
-        app:layout_constraintBottom_toBottomOf="@+id/btn2"
-        app:layout_constraintLeft_toLeftOf="@+id/btn2"
-        app:layout_constraintRight_toRightOf="@+id/btn2"
-        />
-
-    <View
-        android:id="@+id/btn3"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:background="@color/purple_500"
-        app:layout_constraintTop_toTopOf="@+id/nav"
-        app:layout_constraintBottom_toBottomOf="@+id/nav"
-        app:layout_constraintLeft_toRightOf="@+id/btn2"
-        app:layout_constraintRight_toRightOf="parent"
-    />
-
-    <TextView
-        android:id="@+id/btn3_content"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@mipmap/ic_launcher_round"
-        app:layout_constraintTop_toTopOf="@+id/btn3"
-        app:layout_constraintBottom_toBottomOf="@+id/btn3"
-        app:layout_constraintLeft_toLeftOf="@+id/btn3"
-        app:layout_constraintRight_toRightOf="@+id/btn3"
-    />
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/slider"
-        android:layout_width="wrap_content"
-        android:layout_height="110dp"
-        android:background="@drawable/border"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav"
-    />
-
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:background="@color/purple_700"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/slider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

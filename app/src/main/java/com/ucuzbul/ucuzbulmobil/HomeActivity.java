@@ -4,25 +4,25 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ucuzbul.ucuzbulmobil.adapters.SliderAdapter;
+import com.ucuzbul.ucuzbulmobil.models.SliderItem;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ViewPager slider;
+    RecyclerView slider;
     SliderAdapter sliderAdapter;
 
-    List<Map<String, String>> sliderItems = new ArrayList<>();
+    List<SliderItem> sliderItems = new ArrayList<>();
 
     public HomeActivity() {
-        sliderItems.add(Collections.singletonMap("https://w.wallhaven.cc/full/rd/wallhaven-rdwjj7.jpg", "test1"));
-        sliderItems.add(Collections.singletonMap(
+        sliderItems.add(new SliderItem("https://w.wallhaven.cc/full/rd/wallhaven-rdwjj7.jpg", "test1"));
+        sliderItems.add(new SliderItem(
                 "https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoreet interdum finibus. Nunc vitae magna velit. Vivamus non lacus sed sapien ultricies luctus quis id nunc. Cras sodales quam lorem, id ullamcorper libero pharetra eu. Morbi leo velit, elementum eu molestie non, vulputate a tellus. Vivamus blandit posuere lacus quis laoreet."
         ));
@@ -33,9 +33,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        slider = (ViewPager) findViewById(R.id.slider);
-        sliderAdapter = new SliderAdapter(HomeActivity.this, sliderItems);
+        slider = findViewById(R.id.slider);
+        sliderAdapter = new SliderAdapter(sliderItems);
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        slider.setLayoutManager(linearLayoutManager);
         slider.setAdapter(sliderAdapter);
 
     }

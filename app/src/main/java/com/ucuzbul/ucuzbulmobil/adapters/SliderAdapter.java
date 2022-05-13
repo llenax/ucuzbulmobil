@@ -1,89 +1,42 @@
 package com.ucuzbul.ucuzbulmobil.adapters;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
-import android.util.Log;
+import com.ucuzbul.ucuzbulmobil.holders.SliderItemHolder;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
 import com.ucuzbul.ucuzbulmobil.R;
+import com.ucuzbul.ucuzbulmobil.models.SliderItem;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
-public class SliderAdapter extends PagerAdapter {
+public class SliderAdapter extends RecyclerView.Adapter<SliderItemHolder> {
 
-    Context context;
+    List<SliderItem> items;
 
-    List<Map<String, String>> items;
-
-    LayoutInflater layoutInflater;
-
-    public SliderAdapter(Context context, List<Map<String, String>> items) {
-        this.context = context;
+    public SliderAdapter(List<SliderItem> items) {
         this.items = items;
-
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    @Override
-    public int getCount() {
-        return items.size();
-    }
-
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == ((ConstraintLayout) object);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View itemView = layoutInflater.inflate(R.layout.slider_item, container, false);
-
-        ImageView imageView = (ImageView) itemView.findViewById(R.id.slider_content_img);
-
-        Picasso.get().load(Objects.requireNonNull(getMapPositionIndexVal(position)).getKey()).into(imageView);
-
-        TextView textView = (TextView) itemView.findViewById(R.id.slider_content_text);
-        textView.setText(Objects.requireNonNull(getMapPositionIndexVal(position)).getValue());
-
-        container.addView(itemView);
-
-
-        return itemView;
+    public SliderItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_item, parent, false);
+        return new SliderItemHolder(view);
     }
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((ConstraintLayout) object);
+    public void onBindViewHolder(@NonNull SliderItemHolder holder, int position) {
+        holder.bindData(items.get(position));
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    private Map.Entry<String, String> getMapPositionIndexVal(int position) {
-        if( items.get(position).entrySet().stream().findFirst().isPresent()) {
-            return items.get(position).entrySet().stream().findFirst().get();
-        }
-        return null;
+    @Override
+    public int getItemCount() {
+        return items.size();
     }
-
-
 
 }
