@@ -13,6 +13,7 @@ import com.ucuzbul.ucuzbulmobil.models.SliderItem;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView slider;
@@ -23,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     public HomeActivity() {
         sliderItems.add(new SliderItem("https://w.wallhaven.cc/full/rd/wallhaven-rdwjj7.jpg", "test1"));
         sliderItems.add(new SliderItem(
-                "https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png",
+                "https://w.wallhaven.cc/futall/z8/wallhaven-z8dg9y.png",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoreet interdum finibus. Nunc vitae magna velit. Vivamus non lacus sed sapien ultricies luctus quis id nunc. Cras sodales quam lorem, id ullamcorper libero pharetra eu. Morbi leo velit, elementum eu molestie non, vulputate a tellus. Vivamus blandit posuere lacus quis laoreet."
         ));
     }
@@ -35,6 +36,8 @@ public class HomeActivity extends AppCompatActivity {
 
         slider = findViewById(R.id.slider);
         sliderAdapter = new SliderAdapter(sliderItems);
+
+
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         slider.setLayoutManager(linearLayoutManager);

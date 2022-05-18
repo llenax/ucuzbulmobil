@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ucuzbulmobil</string>
-    <string name="splash_title">Ucuzbul</string>
+    <string name="splash_title">Ucuzbul Mobil</string>
+    <string name="nav_title">UCUZBUL</string>
 </resources>

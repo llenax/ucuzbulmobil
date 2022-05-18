@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_title_size">50sp</dimen>
+    <dimen name="bar_height">10dp</dimen>
+    <dimen name="bar_padding">20dp</dimen>
+
+    <dimen name="nav_height">200dp</dimen>
+    <dimen name="nav_title_width">220dp</dimen>
+    <dimen name="nav_title_bottom_bar_height">5dp</dimen>
+
+    <dimen name="bell_height">40dp</dimen>
+    <dimen name="bell_width">30dp</dimen>
+
+    <dimen name="home_notification_area_radius">20dp</dimen>
+
+    <dimen name="slider_height">150dp</dimen>
+
+    <dimen name="home_notification_content_padding_vertical">15dp</dimen>
+    <dimen name="home_notification_content_padding_horizontal">18dp</dimen>
+
+</resources>
